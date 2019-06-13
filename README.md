@@ -1,6 +1,7 @@
 # Levenberg-Marquardt 算法
 
 ## 梯度下降算法
+
 目前用于训练神经网络的算法通常是基于梯度下降法进行误差反向传播<a href='#fn1' name='fn1b'><sup>[1]</sup></a>，核心思想是以目标函数的负梯度方向为搜索方向，通过每次迭代使待优化的目标函数逐步减小，最终使误差函数达到极小值。附加动量因子记忆上次迭代的变化方向<a href='#fn2' name='fn2b'><sup>[2]</sup></a>，可以采用较大的学习速率系数以提高学习速度，但是参数调整优化过程依然线性收敛，相对速度依然较慢。
 
 ### Rosenbrock 函数
@@ -17,12 +18,30 @@ $$
 
 ### 学习率策略
 为了测试不同 `learning rate` 下梯度下降算法的表现，我们采用了 `4` 种优化策略：
-> 1.
-> 2.
-> 3.
-> 4.
+> 1. 固定学习率 $lr_{min}=0.001$；
+> 2. 固定学习率 $lr_{max}=0.1$；
+> 3. 固定学习率 $lr_{max}=0.1$，动量因子 $\beta=0.1$；
+> 4. 初始最大学习率 $lr_{max}=0.1$，每次迭代衰减为前次学习率的 $0.9$ 倍，最终学习率不小于 $lr_{min}=0.001$。
 
 策略 1 下寻找最优解的路径及其俯视图如下所示：
+<div align='center'>
+<img src="/images/Rosenbrock.png" height="200" width="300">
+</div>
+
+策略 2 下寻找最优解的路径及其俯视图如下所示：
+<div align='center'>
+<img src="/images/Rosenbrock.png" height="200" width="300">
+</div>
+
+策略 3 下寻找最优解的路径及其俯视图如下所示：
+<div align='center'>
+<img src="/images/Rosenbrock.png" height="200" width="300">
+</div>
+
+策略 4 下寻找最优解的路径及其俯视图如下所示：
+<div align='center'>
+<img src="/images/Rosenbrock.png" height="200" width="300">
+</div>
 
 ## Levenberg-Marquardt算法
 
@@ -44,9 +63,10 @@ $$
 -----
 **脚注 (Footnote)**
 
-<a name='fn1'>[1]</a>：[Rumelhart D E, Hinton G E, Williams R J. Learning representations by back-propagating errors[J]. Cognitive modeling, 1988, 5(3): 1.](https://www.nature.com/articles/323533a0)
-<a name='fn2'>[2]</a>：[Vogl T P, Mangis J K, Rigler A K, et al. Accelerating the convergence of the back-propagation method[J]. Biological cybernetics, 1988, 59(4-5): 257-263.](https://link.springer.com/article/10.1007/BF00332914)
-<a name='fn3'>[3]</a>：[Levenberg K. A method for the solution of certain non-linear problems in least squares[J]. Quarterly of applied mathematics, 1944, 2(2): 164-168.](https://www.ams.org/journals/qam/1944-02-02/S0033-569X-1944-10666-0/S0033-569X-1944-10666-0.pdf)
-<a name='fn4'>[4]</a>：[Ван Л. Петросян О.Г. Распознавание лиц на основе классификации вейвлет признаков путём вейвлет-нейронных сетей // Информатизация образования и науки. 2018. №4. С. 129-139.](https://elibrary.ru/item.asp?id=36295551)
+<a name='fn1'>[1]</a>：[Rumelhart D E, Hinton G E, Williams R J. Learning representations by back-propagating errors[J]. Cognitive modeling, 1988, 5(3): 1.](https://www.nature.com/articles/323533a0)  
+<a name='fn2'>[2]</a>：[Vogl T P, Mangis J K, Rigler A K, et al. Accelerating the convergence of the back-propagation method[J]. Biological cybernetics, 1988, 59(4-5): 257-263.](https://link.springer.com/article/10.1007/BF00332914)  
+<a name='fn3'>[3]</a>：[Levenberg K. A method for the solution of certain non-linear problems in least squares[J]. Quarterly of applied mathematics, 1944, 2(2): 164-168.](https://www.ams.org/journals/qam/1944-02-02/S0033-569X-1944-10666-0/S0033-569X-1944-10666-0.pdf)  
+<a name='fn4'>[4]</a>：[Ван Л. Петросян О.Г. Распознавание лиц на основе классификации вейвлет признаков путём вейвлет-нейронных сетей // Информатизация образования и науки. 2018. №4. С. 129-139.](https://elibrary.ru/item.asp?id=36295551)  
 
 <a href='#fn1b'><small>↑Back to Content↑</small></a>
+
