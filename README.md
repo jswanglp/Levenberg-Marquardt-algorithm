@@ -12,9 +12,9 @@ $$
 f(x,y)=(a-x)^{2}+b(y-x^{2})^{2} \tag{1}
 \end{align}
 $$
-令 $a=0.5, b=1$，可以得到：
+令 $a=1, b=1$，可以得到：
 <div align='center'>
-<img src="/images/Rosenbrock.png" height="200" width="300">
+<img src="./images/rosenbrock.png" alt="rosenbrock.png" height="200" width="300">
 </div>  
 
 ### 学习率策略
@@ -27,22 +27,22 @@ $$
 
 策略 1 下寻找最优解的路径及其俯视图如下所示：
 <div align='center'>
-<img src="./images/strategy1.png" height="250" width="500">
+<img src="./images/strategy1.png" alt="strategy1.png" height="250" width="500">
 </div>  
 
 策略 2 下寻找最优解的路径及其俯视图如下所示：
 <div align='center'>
-<img src="./images/strategy2.png" height="250" width="500">
+<img src="./images/strategy2.png" alt="strategy2.png" height="250" width="500">
 </div>  
 
 策略 3 下寻找最优解的路径及其俯视图如下所示：
 <div align='center'>
-<img src="./images/strategy3.png" height="250" width="500">
+<img src="./images/strategy3.png" alt="strategy3.png" height="250" width="500">
 </div>  
 
 策略 4 下寻找最优解的路径及其俯视图如下所示：
 <div align='center'>
-<img src="./images/strategy4.png" height="250" width="500">
+<img src="./images/strategy4.png" alt="strategy3.png" height="250" width="500">
 </div>  
 
 根据结果，明显可以看出学习率 `learning rate` 选择过小或过大会导致网络训练过慢或震荡发散，整个网络的训练速度对学习率的选取依赖程度很高。完整的代码及 `notebook` 文件已上传至该 `repo` 的 `codes` 和 `notebooks` 文件夹：  
