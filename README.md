@@ -45,7 +45,9 @@ $$
 <img src="./images/strategy4.png" height="250" width="500">
 </div>  
 
-梯度下降算法完整的代码参见： [gradient_descent.py](./codes/gradient_descent.py)，`jupyter notebook` 文件参见： [gradient_descent.ipynb](./notebooks/gradient_descent.ipynb)  。
+根据结果，明显可以看出学习率 `learning rate` 选择过小或过大会导致网络训练过慢或震荡发散，整个网络的训练速度对学习率的选取依赖程度很高。完整的代码及 `notebook` 文件已上传至该 `repo` 的 `codes` 和 `notebooks` 文件夹：  
+- [gradient_descent.py](./codes/gradient_descent.py)  
+- [gradient_descent.ipynb](./notebooks/gradient_descent.ipynb)  
 
 ## Levenberg-Marquardt算法
 
@@ -63,8 +65,6 @@ $$
 \end{align}
 $$
 其中，$\mathbf{J}(\mathbf{w})$ 为 [Jacobian矩阵](<https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant>)，$\mathbf{e}(\mathbf{w})$ 为均方误差。  
-
-
 
 -----
 **脚注 (Footnote)**
