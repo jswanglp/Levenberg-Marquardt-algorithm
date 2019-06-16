@@ -1,4 +1,5 @@
 # Levenberg-Marquardt 算法
+
 > 君子博学而日参省乎己，则知明而行无过矣<a href='#fn1' name='fn1b'><sup>[1]</sup></a>。  
 
 ## 梯度下降算法
@@ -88,7 +89,7 @@ LM算法受参数 $\mu$ 的影响较大，当 $\mu$ 取较大值时算法更加�
 无论是哪种情况，在两张图中都可以明显的看出LM算法较梯度下降算法收敛更加迅速，但是在最优值附近可能会发生震荡的现象。关于通过LM算法求 Rosenbrock 函数极小值的完整代码及 `jupyter notebook` 文件已上传至该 `repo` 的 `codes` 和 `notebooks` 文件夹：  
 - [LM_algorithm.py](./codes/LM_algorithm.py)  
 - [LM_algorithm.ipynb](./notebooks/LM_algorithm.ipynb)  
-- [LM_algorithm_kernel](https://www.kaggle.com/jswanglp/LM_algorithm) 
+- [LM_algorithm_kernel](https://www.kaggle.com/jswanglp/lm-algorithm) 
 
 -----
 **脚注 (Footnote)**
