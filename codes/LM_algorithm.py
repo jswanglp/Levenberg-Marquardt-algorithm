@@ -1,4 +1,4 @@
-# 本程序实现通过 Levenberg–Marquardt 算法寻找 Rosenbrock 函数的极小值点
+# 本程序实现通过 Levenberg-Marquardt 算法寻找 Rosenbrock 函数的极小值点
 # 可选 Rosenbrock 函数由公式 (a-x)**2+b*(y-x**2)**2 决定，代码内设置: a=1., b=1.
 # 在未知最优值的情况下，初始 lam 应设置较小，LM算法接近牛顿法，收敛加速，但在最优值附近会出现震荡
 # coding: utf-8
@@ -21,8 +21,9 @@ def timer(func):
 
 # LM算法类
 class Strategy:
-    def __init__(self, name='Levenberg–Marquardt-algorithm', lam=5e-2, max_iters=None, tol=1e-6):
+    def __init__(self, name='Levenberg-Marquardt-algorithm', opt=True, lam=5e-2, max_iters=None, tol=1e-6):
         self.name = name
+        self.opt = opt
         self.lam = lam
         self.max_iters = max_iters
         self.iters = 0
@@ -62,7 +63,7 @@ class Strategy:
     
     @timer
     def LM_algor(self, init_position):
-        x = [init_position[0]] # Levenberg–Marquardt算法
+        x = [init_position[0]] # Levenberg-Marquardt算法
         y = [init_position[1]]
         x_real, y_real = 1., 1. # 理想情况
         while True:
@@ -70,9 +71,10 @@ class Strategy:
             cy = y[-1]
             grad = self.rosenbrock_grad(cx, cy)
             Jacob_coe = np.mat(grad).T * np.mat(grad) + self.lam * np.eye(2) # 步长 delta = -(J.T * J + lam * I)^-1 * J.T * z(x,y)
-            err_xy = np.array([abs(x_real - cx), abs(y_real - cy)]) # 已知最小值的坐标
-            step = np.array(-Jacob_coe.I * np.mat(grad).T) * err_xy.reshape(-1, 1) # 已知最小值情况下加速收敛
-            # step = np.array(-Jacob_coe.I * np.mat(grad).T) * self.rosenbrock(cx, cy) # 实际公式，此时需将 lam 设置较小，initial_lam = 8e-8
+            if self.opt:
+                err_xy = np.array([abs(x_real - cx), abs(y_real - cy)]) # 已知最小值的坐标
+                step = np.array(-Jacob_coe.I * np.mat(grad).T) * err_xy.reshape(-1, 1) # 已知最小值情况下加速收敛
+            else: step = np.array(-Jacob_coe.I * np.mat(grad).T) * self.rosenbrock(cx, cy) # 实际公式，此时需将 lam 设置较小，initial_lam = 8e-8
             step = step.flatten()
             x.append(cx + step[0])
             y.append(cy + step[1])
@@ -86,27 +88,31 @@ class Strategy:
 if __name__ == '__main__':
     
     init_position = [-1.5, -1.5] # 初始点位置
-    name = 'Levenberg–Marquardt-algorithm'
+    name = 'Levenberg-Marquardt-algorithm'
+    OPT = [True, False]
+    LAM = [5e-2, 8e-8]
 
     # 作出 3D 路径及 x-y 平面投影图
-    fig = plt.figure(1, figsize=(18, 8))
-    ax1 = fig.add_subplot(121, projection='3d')
-    print(name.capitalize())
-    s = Strategy(name)
-    result = s.LM_algor(init_position)
-    s.draw_chart(result['path'], ax1)
-    ax1.set_title('{}, loops: {:,}'.format(name, result['iters']), fontsize=14)
-    x_loc,y_loc = result['final_pos']
-    print('    Location of the final point: \n    x={:.4f}, y={:.4f}'.format(x_loc, y_loc))
+    for i, opt, lam in zip(range(1, 3), OPT, LAM):
+        fig = plt.figure(i, figsize=(18, 8))
+        ax1 = fig.add_subplot(121, projection='3d')
+        print(name.capitalize())
+        s = Strategy(name, opt=opt, lam=lam)
+        # print(s.__dict__)
+        result = s.LM_algor(init_position)
+        s.draw_chart(result['path'], ax1)
+        ax1.set_title('{}, loops: {:,}'.format(name, result['iters']), fontsize=14)
+        x_loc,y_loc = result['final_pos']
+        print('    Location of the final point: \n    x={:.4f}, y={:.4f}'.format(x_loc, y_loc))
 
-    ax2 = fig.add_subplot(122)
-    x_path,y_path = result['path']
-    ax2.plot(x_path, y_path,'r')
-    ax2.scatter(x_path[0], y_path[0], c='r', s=30, marker='o')
-    ax2.scatter(x_path[-1], y_path[-1], c='r', s=30, marker='*')
-    ax2.set_xlabel('X', fontsize=14), ax2.set_ylabel('Y', fontsize=14)
-    ax2.tick_params(labelsize=14)
-    ax2.grid(b=True)
+        ax2 = fig.add_subplot(122)
+        x_path,y_path = result['path']
+        ax2.plot(x_path, y_path,'r')
+        ax2.scatter(x_path[0], y_path[0], c='r', s=30, marker='o')
+        ax2.scatter(x_path[-1], y_path[-1], c='r', s=30, marker='*')
+        ax2.set_xlabel('X', fontsize=14), ax2.set_ylabel('Y', fontsize=14)
+        ax2.tick_params(labelsize=14)
+        ax2.grid(b=True)
     
     plt.show()
 
