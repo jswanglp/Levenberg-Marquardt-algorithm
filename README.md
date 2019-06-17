@@ -2,7 +2,7 @@
 
 > 君子博学而日参省乎己，则知明而行无过矣<a href='#fn1' name='fn1b'><sup>[1]</sup></a>。  
 
-_PS:  GitHub 的公式渲染不好影响阅读，所以特地将 `markdown` 文件生成了可供完美阅读的 [html 格式](README.html) 和 [pdf 格式](README.pdf)_
+_PS:  GitHub 的公式渲染不好影响阅读，所以特地将 `markdown` 文件生成了可供完美阅读的 [pdf 格式](README.pdf)。_
 
 ## 梯度下降算法
 
