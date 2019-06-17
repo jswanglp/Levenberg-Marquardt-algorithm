@@ -2,6 +2,8 @@
 
 > 君子博学而日参省乎己，则知明而行无过矣<a href='#fn1' name='fn1b'><sup>[1]</sup></a>。  
 
+_PS:  GitHub 的公式渲染不好影响阅读，所以特地将 `markdown` 文件生成了可供完美阅读的 [html 格式](README.html) 和 [pdf 格式](README.pdf)_
+
 ## 梯度下降算法
 
 目前用于训练神经网络的算法通常是基于[梯度下降法](https://en.wikipedia.org/wiki/Gradient_descent)进行误差反向传播<a href='#fn2' name='fn2b'><sup>[2]</sup></a>，核心思想是以目标函数的负梯度方向为搜索方向，通过每次迭代使待优化的目标函数逐步减小，最终使误差函数达到极小值。附加动量因子记忆上次迭代的变化方向<a href='#fn3' name='fn3b'><sup>[3]</sup></a>，可以采用较大的学习速率系数以提高学习速度，但是参数调整优化过程依然线性收敛，相对速度依然较慢。  
