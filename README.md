@@ -13,11 +13,11 @@ _PS:  GitHub 的无法渲染 [LaTeX](https://www.latex-project.org/) 公式，�
 我们选取 [Rosenbrock 函数](https://en.wikipedia.org/wiki/Rosenbrock_function) 作为测试优化算法性能的函数，这是一个非凸函数，由公式 (1) 决定：  
 
 <div align="center">
-<img src="https://render.githubusercontent.com/render/math?math=\begin{align}%20f(x,y)=(a-x)^{2}%2Bb(y-x^{2})^{2}%20\tag{1}%20\end{align}" alt="-w" style="zoom:140%;" />  
+<img src="https://render.githubusercontent.com/render/math?math=\begin{align}%20f(x,y)=(a-x)^{2}%2Bb(y-x^{2})^{2}%20\tag{1}%20\end{align}" alt="-w" style="zoom:120%;" />  
 </div>  
 
 
-令 <img src="https://render.githubusercontent.com/render/math?math=a=1, b=1" alt="-w" style="zoom:140%;" />，可以得到：
+令 <img src="https://render.githubusercontent.com/render/math?math=a=1, b=1" alt="-w" style="zoom:120%;" />，可以得到：
 
 <div align='center'>
 <img src="./images/rosenbrock.png" alt="rosenbrock.png" height="200" width="300">
@@ -63,21 +63,21 @@ LM算法<a href='#fn4' name='fn4b'><sup>[4]</sup></a>是一种利用标准数值
 第 `k+1` 次迭代时模型的参数由 <img src="https://render.githubusercontent.com/render/math?math=\mathbf{w}^{k%2B1}" alt="-w" style="zoom:120%;" /> 决定<a href='#fn5' name='fn5b'><sup>[5]</sup></a>：  
 
 <div align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=\mathbf{w}^{k%2B1}=\mathbf{w}^{k}%2B\Delta\mathbf{w}^{k}" alt="-w" style="zoom:140%;" /> &emsp;&emsp;<font size="4">(2)</font>
+    <img src="https://render.githubusercontent.com/render/math?math=\mathbf{w}^{k%2B1}=\mathbf{w}^{k}%2B\Delta\mathbf{w}^{k}" alt="-w" style="zoom:120%;" /> &emsp;&emsp;<font size="4">(2)</font>
 </div>
 
 
 LM算法对模型参数的修正量 <img src="https://render.githubusercontent.com/render/math?math=\Delta \mathbf{w}" alt="-w" style="zoom:120%;" /> 由公式 (3) 可以解出：  
 
 <div align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=[\mathbf{J}^{T}(\mathbf{w})\mathbf{J}(\mathbf{w})-\mu%20\mathbf{I}]\Delta%20\mathbf{w}=-\mathbf{J^{T}}(\mathbf{w})\mathbf{e}(\mathbf{w})" alt="-w" style="zoom:140%;" /> &emsp;&emsp;<font size="4">(3)</font>
+    <img src="https://render.githubusercontent.com/render/math?math=[\mathbf{J}^{T}(\mathbf{w})\mathbf{J}(\mathbf{w})-\mu%20\mathbf{I}]\Delta%20\mathbf{w}=-\mathbf{J^{T}}(\mathbf{w})\mathbf{e}(\mathbf{w})" alt="-w" style="zoom:120%;" /> &emsp;&emsp;<font size="4">(3)</font>
 </div>
 
 
 其中，<img src="https://render.githubusercontent.com/render/math?math=\mathbf{J}(\mathbf{w})" alt="-w" style="zoom:120%;" /> 为 [Jacobian矩阵](<https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant>)，<img src="https://render.githubusercontent.com/render/math?math=\mathbf{e}(\mathbf{w})" alt="-w" style="zoom:120%;" /> 为期望值 <img src="https://render.githubusercontent.com/render/math?math=\widehat{y}" alt="-w" style="zoom:120%;" /> 与在参数 <img src="https://render.githubusercontent.com/render/math?math=\mathbf{w}" alt="-w" style="zoom:120%;" /> 下函数 <img src="https://render.githubusercontent.com/render/math?math=y(\mathbf{w})" alt="-w" style="zoom:120%;" /> 的差。  
 
 <div align="center">
-    <img src="https://render.githubusercontent.com/render/math?math=\mathbf{e}(\mathbf{w})=\widehat{y}-y(\mathbf{w})" alt="-w" style="zoom:140%;" /> &emsp;&emsp;<font size="4">(4)</font>
+    <img src="https://render.githubusercontent.com/render/math?math=\mathbf{e}(\mathbf{w})=\widehat{y}-y(\mathbf{w})" alt="-w" style="zoom:120%;" /> &emsp;&emsp;<font size="4">(4)</font>
 </div>
 
 
