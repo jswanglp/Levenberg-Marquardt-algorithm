@@ -11,11 +11,13 @@ _PS:  GitHub 的公式渲染不好影响阅读，所以特地将 `markdown` 文�
 ### Rosenbrock 函数
 
 我们选取 [Rosenbrock 函数](https://en.wikipedia.org/wiki/Rosenbrock_function) 作为测试优化算法性能的函数，这是一个非凸函数，由公式 (1) 决定：  
+
 $$
 \begin{align}
 f(x,y)=(a-x)^{2}+b(y-x^{2})^{2} \tag{1}
 \end{align}
 $$
+
 令 $a=1, b=1$，可以得到：
 
 <div align='center'>
@@ -31,21 +33,25 @@ $$
 > 4. 初始最大学习率  $lr_{max}=0.1$，每次迭代衰减为前次学习率的 $0.9$ 倍，最终学习率不小于 $lr_{min}=0.001$。  
 
 策略 1 下梯度下降法寻找最优解的路径及其在 `x-y` 平面投影的俯视图如下所示：
+
 <div align='center'>
 <img src="./images/strategy1.png" alt="strategy1.png" height="250" width="500">
 </div>  
 
 策略 2 下寻找最优解的路径及其在 `x-y` 平面投影的俯视图如下所示：
+
 <div align='center'>
 <img src="./images/strategy2.png" alt="strategy2.png" height="250" width="500">
 </div>  
 
 策略 3 下寻找最优解的路径及其在 `x-y` 平面投影的俯视图如下所示：
+
 <div align='center'>
 <img src="./images/strategy3.png" alt="strategy3.png" height="250" width="500">
 </div>  
 
 策略 4 下寻找最优解的路径及其在 `x-y` 平面投影的俯视图如下所示：
+
 <div align='center'>
 <img src="./images/strategy4.png" alt="strategy3.png" height="250" width="500">
 </div>  
@@ -59,17 +65,21 @@ $$
 
 LM算法<a href='#fn4' name='fn4b'><sup>[4]</sup></a>是一种利用标准数值优化技术的快速算法，具有[高斯牛顿法](https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm)的局部收敛性和梯度下降法的全局特性，在局部搜索能力上强于梯度下降法。LM算法基本思想是先沿着负梯度方向进行搜索，然后根据牛顿法在最优值附近产生一个新的理想的搜索方向。LM算法具有二阶收敛速度，迭代次数很少，可以大幅度提高收敛速度和算法的稳定性，避免陷入局部最小点的优点。  
 第 `k+1` 次迭代时模型的参数由 $\mathbf{w}^{k+1}$ 决定<a href='#fn5' name='fn5b'><sup>[5]</sup></a>：  
+
 $$
 \begin{align}
 \mathbf{w}^{k+1}=\mathbf{w}^{k}+\Delta\mathbf{w}^{k} \tag{2}
 \end{align}
 $$
+
 LM算法对模型参数的修正量 $\Delta \mathbf{w}$ 由公式 (3) 可以解出：  
+
 $$
 \begin{align}
 [\mathbf{J}^{T}(\mathbf{w})\mathbf{J}(\mathbf{w})-\mu \mathbf{I}]\Delta \mathbf{w}=-\mathbf{J^{T}}(\mathbf{w})\mathbf{e}(\mathbf{w}) \tag{3}
 \end{align}
 $$
+
 其中，$\mathbf{J}(\mathbf{w})$ 为 [Jacobian矩阵](<https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant>)，$\mathbf{e}(\mathbf{w})$ 为期望值 $\widehat{y}$ 与在参数 $\mathbf{w}$ 下函数 $y(\mathbf{w})$ 的差。  
 $$
 \begin{align}
@@ -85,6 +95,7 @@ LM算法受参数 $\mu$ 的影响较大，当 $\mu$ 取较大值时算法更加�
 </div>  
 
 然后给出未知最优参数情况下LM算法的寻优路径及其在 `x-y` 平面投影的俯视图如下所示（$\mu$ 的值固定为 $8\times10^{-8}$）。
+
 <div align='center'>
 <img src="./images/LM_algorithm2.png" alt="LM_algorithm2.png" height="250" width="500">
 </div>  
