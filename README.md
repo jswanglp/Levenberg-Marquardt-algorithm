@@ -2,7 +2,7 @@
 
 > 君子博学而日参省乎己，则知明而行无过矣<a href='#fn1' name='fn1b'><sup>[1]</sup></a>。  
 
-_PS:  GitHub 的无法渲染 [LaTeX](https://www.latex-project.org/) 公式，严重影响阅读体验，所以特地写了一个图片显示公式的版本（[公式自定义编号问题尚未解决](https://gist.github.com/a-rodin/fef3f543412d6e1ec5b6cf55bf197d7b)），原 LaTeX 公式版本在 [这里](./README_LaTeX.md)，另外也将 `markdown` 文件生成了可供完美阅读的 [pdf 格式](README.pdf)。_
+_PS:  GitHub page 无法渲染 [LaTeX](https://www.latex-project.org/) 公式，严重影响阅读体验，所以特地写了一个通过引用图片显示公式的版本（[公式自定义编号问题尚未解决](https://gist.github.com/a-rodin/fef3f543412d6e1ec5b6cf55bf197d7b)），原 LaTeX 公式版本在 [这里](./README_LaTeX.md)，另外也将原 `markdown` 文件生成了可供完美阅读的 [pdf 格式](README.pdf)。_
 
 ## 梯度下降算法
 
@@ -15,7 +15,6 @@ _PS:  GitHub 的无法渲染 [LaTeX](https://www.latex-project.org/) 公式，�
 <div align="center">
 <img src="https://render.githubusercontent.com/render/math?math=\begin{align}%20f(x,y)=(a-x)^{2}%2Bb(y-x^{2})^{2}%20\tag{1}%20\end{align}" alt="-w" style="zoom:120%;" />  
 </div>  
-
 
 令 <img src="https://render.githubusercontent.com/render/math?math=a=1, b=1" alt="-w" style="zoom:120%;" />，可以得到：
 
@@ -66,20 +65,17 @@ LM算法<a href='#fn4' name='fn4b'><sup>[4]</sup></a>是一种利用标准数值
     <img src="https://render.githubusercontent.com/render/math?math=\mathbf{w}^{k%2B1}=\mathbf{w}^{k}%2B\Delta\mathbf{w}^{k}" alt="-w" style="zoom:120%;" /> &emsp;&emsp;<font size="4">(2)</font>
 </div>
 
-
 LM算法对模型参数的修正量 <img src="https://render.githubusercontent.com/render/math?math=\Delta \mathbf{w}" alt="-w" style="zoom:120%;" /> 由公式 (3) 可以解出：  
 
 <div align="center">
     <img src="https://render.githubusercontent.com/render/math?math=[\mathbf{J}^{T}(\mathbf{w})\mathbf{J}(\mathbf{w})-\mu%20\mathbf{I}]\Delta%20\mathbf{w}=-\mathbf{J^{T}}(\mathbf{w})\mathbf{e}(\mathbf{w})" alt="-w" style="zoom:120%;" /> &emsp;&emsp;<font size="4">(3)</font>
 </div>
 
-
 其中，<img src="https://render.githubusercontent.com/render/math?math=\mathbf{J}(\mathbf{w})" alt="-w" style="zoom:120%;" /> 为 [Jacobian矩阵](<https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant>)，<img src="https://render.githubusercontent.com/render/math?math=\mathbf{e}(\mathbf{w})" alt="-w" style="zoom:120%;" /> 为期望值 <img src="https://render.githubusercontent.com/render/math?math=\widehat{y}" alt="-w" style="zoom:120%;" /> 与在参数 <img src="https://render.githubusercontent.com/render/math?math=\mathbf{w}" alt="-w" style="zoom:120%;" /> 下函数 <img src="https://render.githubusercontent.com/render/math?math=y(\mathbf{w})" alt="-w" style="zoom:120%;" /> 的差。  
 
 <div align="center">
     <img src="https://render.githubusercontent.com/render/math?math=\mathbf{e}(\mathbf{w})=\widehat{y}-y(\mathbf{w})" alt="-w" style="zoom:120%;" /> &emsp;&emsp;<font size="4">(4)</font>
 </div>
-
 
 LM算法受参数 <img src="https://render.githubusercontent.com/render/math?math=\mu" alt="-w" style="zoom:120%;" /> 的影响较大，当 <img src="https://render.githubusercontent.com/render/math?math=\mu" alt="-w" style="zoom:120%;" /> 取较大值时算法更加接近于带小步长的梯度下降法，当 <img src="https://render.githubusercontent.com/render/math?math=\mu" alt="-w" style="zoom:120%;" /> 值取较小值时更加接近高斯-牛顿算法。  
 
